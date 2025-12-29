@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>For Deepa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="lockScreen" class="screen">
+        <div class="instructions">
+            <h2>System Locked</h2>
+            <p>Scan Fingerprint to Access</p>
+        </div>
+        
+        <div class="fingerprint-container" id="fingerprintBtn">
+            <div class="scan-line"></div>
+            <svg viewBox="0 0 100 100" class="fingerprint-icon">
+                <path d="M50,10 C35,10 20,25 20,45 C20,65 30,80 50,90 C70,80 80,65 80,45 C80,25 65,10 50,10 M50,20 C60,20 70,30 70,45 C70,60 60,70 50,75 C40,70 30,60 30,45 C30,30 40,20 50,20" fill="none" stroke="#00ffcc" stroke-width="2" />
+                <path d="M50,30 C55,30 60,35 60,45" fill="none" stroke="#00ffcc" stroke-width="2" />
+                <path d="M40,45 C40,35 45,30 50,30" fill="none" stroke="#00ffcc" stroke-width="2" />
+            </svg>
+        </div>
+        
+        <p class="status-text" id="statusText">Hold to Identify</p>
+    </div>
+
+    <div id="proposalScreen" class="screen hidden">
+        <div class="content">
+            
+            <div class="slideshow-container">
+                <img class="slide fade" src="p1.jpg">
+                <img class="slide fade" src="p2.jpg">
+                <img class="slide fade" src="p3.jpg">
+            </div>
+            
+            <h1>Identity Verified: Bangaram</h1>
+            
+            <div class="reasons-list">
+                <h3>Why I Choose You:</h3>
+                <ul>
+                    <li>Because you are the strength of our home.</li>
+                    <li>Because even after all this time, your smile is my favorite thing.</li>
+                    <li>Because life is just better with you.</li>
+                </ul>
+            </div>
+            
+            <p class="love-note">
+                Deepa, we have built a life, a family, and so many memories. But today, I just want to be your husband all over again.
+            </p>
+            
+            <h2 class="big-question">Will you be mine forever?</h2>
+            
+            <div class="buttons">
+                <button onclick="acceptProposal()">YES!</button>
+                <button onclick="acceptProposal()">Always Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
