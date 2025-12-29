@@ -1,13 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000; /* Pure Black for OLED realism */
+    color: white;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* FINGERPRINT STYLES */
+.fingerprint-container {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    /* Removed the border to make it look like just an icon floating in black */
+}
+
+.fingerprint-icon {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    stroke: #444; /* Darker grey initially */
+    transition: all 0.3s;
+}
+
+/* When scanning, it glows */
+.scanning .fingerprint-icon {
+    opacity: 1;
+    stroke: #00ffcc;
+    filter: drop-shadow(0 0 10px #00ffcc);
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #00ffcc;
+    box-shadow: 0 0 15px #00ffcc;
+    display: none;
+    animation: scan 1.5s infinite linear;
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+.scanning .scan-line {
+    display: block;
+}
+
+.status-text {
+    color: #333; /* Very dark text, almost invisible until active */
+    font-size: 0.8rem;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+/* PROPOSAL SCREEN STYLES */
+#proposalScreen {
+    background: radial-gradient(circle at center, #1a0b0b 0%, #000000 100%);
+    overflow-y: auto; /* Allows scrolling if text is long */
+    display: block; /* Overrides flex to allow scrolling */
+    padding-top: 50px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+.slideshow-container {
+    max-width: 90%;
+    height: 250px;
+    margin: 0 auto 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.fade {
+    animation: fade 2s infinite; /* Keeps it fading */
+}
+
 .reasons-list {
     text-align: left;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 10px;
+    border: 1px solid #333;
 }
 
 .reasons-list li {
-    margin-bottom: 8px;
-    list-style-type: "❤️ "; /* Cute custom bullet point */
+    margin-bottom: 10px;
+    list-style-type: none;
 }
+.reasons-list li::before {
+    content: "❤️ ";
+}
+
+.big-question {
+    color: #ff4d4d;
+    font-size: 2rem;
+    margin: 40px 0;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+button {
+    background: linear-gradient(45deg, #ff4d4d, #c70039);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    margin: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(199, 0, 57, 0.4);
+}
+
+/* EXPLOSION EMOJI STYLES */
+.emoji {
+    position: fixed;
+    bottom: -50px;
+    font-size: 2rem;
+    animation: rise 3s linear forwards;
+    z-index: 9999;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -50px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        bottom: 110vh;
+        transform: translateX(var(--random-x)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
