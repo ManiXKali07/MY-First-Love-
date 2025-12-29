@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>For Deepa</title>
+    <title>System Access</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
@@ -14,11 +14,6 @@
     </audio>
 
     <div id="lockScreen" class="screen">
-        <div class="instructions">
-            <h2>System Locked</h2>
-            <p>Scan Fingerprint to Access</p>
-        </div>
-        
         <div class="fingerprint-container" id="fingerprintBtn">
             <div class="scan-line"></div>
             <svg viewBox="0 0 100 100" class="fingerprint-icon">
@@ -27,8 +22,7 @@
                 <path d="M40,45 C40,35 45,30 50,30" fill="none" stroke="#00ffcc" stroke-width="2" />
             </svg>
         </div>
-        
-        <p class="status-text" id="statusText">Hold to Identify</p>
+        <p class="status-text" id="statusText">Hold to Unlock</p>
     </div>
 
     <div id="proposalScreen" class="screen hidden">
@@ -58,8 +52,8 @@
             <h2 class="big-question">Will you be mine forever?</h2>
             
             <div class="buttons">
-                <button onclick="acceptProposal()">YES!</button>
-                <button onclick="acceptProposal()">Always Yes</button>
+                <button onclick="startCelebration()">YES!</button>
+                <button onclick="startCelebration()">Always Yes</button>
             </div>
         </div>
     </div>
@@ -67,3 +61,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
